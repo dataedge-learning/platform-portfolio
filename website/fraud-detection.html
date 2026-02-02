@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Real-Time Fraud Detection | Shrikant Agrawal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container hero-left">
+      <h1>Real-Time Fraud Detection Platform</h1>
+      <p>
+        A production-grade, near real-time fraud detection system designed using
+        modern DataOps and MLOps principles. This architecture demonstrates how
+        streaming data, machine learning, orchestration, and CI/CD come together
+        in a scalable and reliable setup.
+      </p>
+
+      <div class="header-links">
+        <a href="index.html">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Architecture Overview</h2>
+
+      <div class="architecture-image">
+        <img src="assets/fraud-mlops-architecture.png"
+             alt="Real-Time Fraud Detection MLOps Architecture">
+      </div>
+
+      <p class="caption">
+        Figure: Near real-time fraud detection architecture using Kafka, Spark,
+        Airflow, MLflow, and CI/CD.
+      </p>
+    </section>
+
+    <section>
+      <h2>How the System Works (End-to-End)</h2>
+
+      <ol class="flow-list">
+        <li>
+          <strong>Event Ingestion:</strong>
+          Financial transactions are produced to Kafka topics in real time.
+        </li>
+
+        <li>
+          <strong>Streaming Inference:</strong>
+          Spark Structured Streaming continuously consumes events and performs
+          fraud prediction using the latest production ML model.
+        </li>
+
+        <li>
+          <strong>Model Management:</strong>
+          Models are versioned and promoted using MLflow Model Registry
+          (Staging → Production).
+        </li>
+
+        <li>
+          <strong>Orchestration:</strong>
+          Apache Airflow schedules and controls model training, validation,
+          and promotion workflows.
+        </li>
+
+        <li>
+          <strong>CI/CD Automation:</strong>
+          GitHub Actions builds Docker images, runs tests, and deploys updated
+          inference services.
+        </li>
+
+        <li>
+          <strong>Monitoring & Feedback:</strong>
+          Prometheus metrics and confirmed fraud labels feed back into the
+          system for retraining and continuous improvement.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>MLOps Practices Demonstrated</h2>
+
+      <ul class="skills-list">
+        <li>Real-time streaming inference</li>
+        <li>Model versioning and controlled promotion</li>
+        <li>Automated retraining workflows</li>
+        <li>Artifact and feature storage (S3 / MinIO)</li>
+        <li>CI/CD for ML systems</li>
+        <li>Monitoring, alerting, and feedback loops</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Case Study & Code</h2>
+
+      <p>
+        Detailed case studies, performance metrics, and implementation code
+        will be linked here.
+      </p>
+
+      <div class="header-links">
+        <a href="#">Case Study (Coming Soon)</a>
+        <a href="#">GitHub Repository (Coming Soon)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© Shrikant Agrawal — DataOps • MLOps • GenAIOps</p>
+    </div>
+  </footer>
+</body>
+</html>

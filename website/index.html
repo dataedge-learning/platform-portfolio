@@ -1,71 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shrikant Agrawal | DataOps • MLOps • GenAIOps</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Shrikant Agrawal – DataOps, MLOps & GenAIOps engineer building production-grade data and AI platforms." />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(180deg, #020617, #0f172a);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      font-weight: 400;
+      color: #94a3b8;
+      margin-bottom: 25px;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #cbd5f5;
+    }
+
+    .header-links {
+      margin-top: 30px;
+    }
+
+    .header-links a {
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    section {
+      border-top: 1px solid #1e293b;
+    }
+
+    h3 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      color: #f8fafc;
+    }
+
+    p {
+      max-width: 850px;
+      color: #cbd5f5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 25px;
+    }
+
+    .card h4 {
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .list-links li {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #020617;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
+<!-- ================= HERO ================= -->
+<header>
+  <h1>Shrikant Agrawal</h1>
+  <h2>DataOps • MLOps • GenAIOps Engineer</h2>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Shrikant Agrawal</h1>
-      <h2>DataOps • MLOps • GenAIOps Engineer</h2>
+  <p>
+    I design and operate scalable data platforms, real-time streaming systems,
+    and production-grade machine learning pipelines with strong focus on reliability,
+    observability, and automation.
+  </p>
 
-      <p>
-        I design and operate production-grade data, machine learning,
-        and GenAI platforms with a strong focus on reliability,
-        automation, and observability.
-      </p>
-    </div>
-
-    <div>
-      <p style="color:#64748b">
-        This site showcases real engineering work —  
-        live systems, architecture decisions, and operational learnings.
-      </p>
-    </div>
-  </section>
-
-  <!-- PLATFORM FOCUS -->
-  <section class="platforms">
-
-    <div class="card">
-      <h3>DataOps</h3>
-      <p>
-        Event-driven pipelines, orchestration, data quality,
-        and reliable delivery of streaming & batch data systems.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>MLOps</h3>
-      <p>
-        Experiment tracking, model lifecycle management,
-        CI/CD for ML workflows, and production-ready serving.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>GenAIOps</h3>
-      <p>
-        Secure GenAI systems, RAG pipelines,
-        cost-aware inference, and observability-first design.
-      </p>
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <div class="footer">
-     contact shrikantagrawal61@gmail.com
+  <div class="header-links">
+    <a href="mailto:shrikantagrawal61@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/shrikant-agrawal/" target="_blank">LinkedIn</a>
   </div>
+</header>
 
-</div>
+<!-- ================= ABOUT ================= -->
+<section>
+  <div class="container">
+    <h3>About</h3>
+    <p>
+      I work across the full lifecycle of data and machine learning systems — from ingestion
+      and processing to model training, deployment, and monitoring. My work emphasizes
+      production-first design, fault tolerance, and long-term maintainability.
+    </p>
+    <p>
+      I regularly build and operate event-driven architectures, streaming inference systems,
+      and automated ML pipelines using modern DataOps, MLOps, and GenAIOps practices.
+    </p>
+  </div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section>
+  <div class="container">
+    <h3>Core Expertise</h3>
+
+    <div class="grid">
+      <div class="card">
+        <h4>DataOps</h4>
+        <ul>
+          <li>Kafka, event streaming</li>
+          <li>Spark & distributed compute</li>
+          <li>Airflow orchestration</li>
+          <li>Data quality & lineage</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>MLOps</h4>
+        <ul>
+          <li>Model training pipelines</li>
+          <li>MLflow & model registry</li>
+          <li>Model versioning & rollout</li>
+          <li>Batch & real-time inference</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>GenAIOps</h4>
+        <ul>
+          <li>LLM orchestration</li>
+          <li>RAG pipelines</li>
+          <li>Inference monitoring</li>
+          <li>Prompt & model lifecycle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
+<section>
+  <div class="container">
+    <h3>Case Studies</h3>
+    <ul class="list-links">
+      <li>
+        <a href="fraud-detection.html">
+          Real-Time Fraud Detection Platform (Kafka + Spark + MLflow)
+        </a>
+      </li>
+      <li><a href="#">End-to-End MLOps Pipeline with Airflow</a></li>
+      <li><a href="#">Streaming Inference Architecture (Low Latency)</a></li>
+      <li><a href="#">GenAI RAG System Design & Deployment</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROJECT CODE ================= -->
+<section>
+  <div class="container">
+    <h3>Project Code & Repositories</h3>
+    <ul class="list-links">
+      <li><a href="#">Kafka + Spark Streaming Examples</a></li>
+      <li><a href="#">MLOps Reference Architecture</a></li>
+      <li><a href="#">Airflow DAG Patterns</a></li>
+      <li><a href="#">Inference Service Templates</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= COMMANDS & TIPS ================= -->
+<section>
+  <div class="container">
+    <h3>Commands, Tips & Engineering Notes</h3>
+    <ul class="list-links">
+      <li><a href="#">Kafka Debugging & Operations Commands</a></li>
+      <li><a href="#">Spark Streaming Performance Tuning</a></li>
+      <li><a href="#">Airflow Production Best Practices</a></li>
+      <li><a href="#">MLOps Failure Patterns & Fixes</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 Shrikant Agrawal · Built around real-world data & ML systems
+</footer>
 
 </body>
-</html>	
+</html>
