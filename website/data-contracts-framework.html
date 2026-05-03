@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Powered Decisioning Platform | Shrikant Agrawal</title>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg:#020617; --surface:#0f172a; --border:#1e293b;
+      --text:#e2e8f0; --muted:#94a3b8;
+      --accent:#38bdf8; --green:#34d399; --purple:#a78bfa; --orange:#fb923c;
+    }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    nav {
+      position:sticky; top:0; z-index:100;
+      background:rgba(2,6,23,0.92); backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:60px;
+    }
+    .nav-brand { font-weight:700; font-size:15px; color:var(--text); }
+    .nav-back { font-size:13px; color:var(--muted); }
+
+    .hero {
+      max-width:860px; margin:0 auto; padding:80px 24px 60px;
+    }
+    .badge {
+      display:inline-block; font-size:11px; font-weight:600; letter-spacing:1px;
+      text-transform:uppercase; padding:4px 12px; border-radius:4px; margin-bottom:20px;
+      background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); color:var(--accent);
+    }
+    .hero h1 { font-size:2.4rem; font-weight:800; line-height:1.2; margin-bottom:16px; }
+    .hero p { font-size:1.05rem; color:var(--muted); max-width:700px; }
+
+    .metrics-row {
+      display:flex; gap:0; flex-wrap:wrap;
+      border:1px solid var(--border); border-radius:12px; overflow:hidden;
+      margin:40px 0;
+    }
+    .metric {
+      flex:1; min-width:130px; padding:24px 20px; text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .metric:last-child { border-right:none; }
+    .metric-val { font-size:1.8rem; font-weight:800; color:var(--accent); }
+    .metric-val.green { color:var(--green); }
+    .metric-val.purple { color:var(--purple); }
+    .metric-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:4px; }
+
+    .content { max-width:860px; margin:0 auto; padding:0 24px 80px; }
+    .content section { margin-bottom:56px; }
+    .content h2 { font-size:1.4rem; font-weight:700; color:var(--text); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+    .content p { font-size:14px; color:var(--muted); margin-bottom:14px; }
+    .content ul { padding-left:20px; }
+    .content ul li { font-size:14px; color:var(--muted); margin-bottom:10px; line-height:1.6; }
+    .content ul li strong { color:var(--text); }
+
+    .flow-steps { display:flex; flex-direction:column; gap:0; }
+    .flow-step {
+      display:flex; gap:20px; align-items:flex-start; padding:20px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .flow-step:last-child { border-bottom:none; }
+    .step-num {
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3);
+      color:var(--accent); font-size:13px; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .step-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:6px; }
+    .step-desc { font-size:13.5px; color:var(--muted); }
+
+    .tech-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+    .tech-tag {
+      font-size:12px; padding:4px 12px; border-radius:5px;
+      background:var(--surface); border:1px solid var(--border); color:var(--text);
+    }
+
+    .arch-box {
+      background:var(--surface); border:1px solid var(--border); border-radius:12px;
+      padding:28px; font-family:monospace; font-size:12.5px; color:var(--muted);
+      line-height:2; overflow-x:auto;
+    }
+    .arch-box .hl { color:var(--accent); }
+    .arch-box .hl-green { color:var(--green); }
+    .arch-box .hl-purple { color:var(--purple); }
+
+    footer { border-top:1px solid var(--border); text-align:center; padding:28px 20px; font-size:13px; color:var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Shrikant Agrawal</div>
+  <a class="nav-back" href="index.html">← Back to Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="badge">Case Study · MLOps · GenAI · Streaming</div>
+  <h1>AI-Powered Intelligent<br/>Decisioning Platform</h1>
+  <p>
+    End-to-end platform transforming unstructured documents into structured risk profiles,
+    computing real-time risk scores, and enabling business users to query complex data
+    portfolios through a conversational AI interface — built on Azure Databricks.
+  </p>
+
+  <div class="metrics-row">
+    <div class="metric"><div class="metric-val">0.95+</div><div class="metric-label">Model ROC-AUC</div></div>
+    <div class="metric"><div class="metric-val green">&lt;200ms</div><div class="metric-label">Serving latency</div></div>
+    <div class="metric"><div class="metric-val">High</div><div class="metric-label">Throughput volume</div></div>
+    <div class="metric"><div class="metric-val purple">RAG</div><div class="metric-label">Grounded answers</div></div>
+    <div class="metric"><div class="metric-val green">SHAP</div><div class="metric-label">Every decision explained</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <section>
+    <h2>Business Problem</h2>
+    <p>Manual document processing was creating bottlenecks — assessors spending hours extracting data from unstructured documents, inconsistent decisions due to human bias, and no explainability for rejected cases.</p>
+    <p>The platform needed to automate extraction, compute risk scores in real time, and give every decision a clear, auditable explanation for compliance teams.</p>
+  </section>
+
+  <section>
+    <h2>Architecture — End-to-End Flow</h2>
+    <div class="arch-box">
+      <span class="hl">① Sources</span> → Kafka (real-time) · Blob Storage · REST API · Synapse · Storage Queue<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl">② Schema Registry + Data Contracts</span> → validation gate pre-Bronze<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl">③ Bronze Layer</span> → raw immutable Delta tables · append-only · CDF enabled<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl">④ Silver Layer</span> → parse · validate · deduplicate · LLM extraction (ai_extract)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl-green">⑤ Feature Store</span> → pre-computed features · training/serving parity · point-in-time correct<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl-purple">⑥ ML + AI Layer</span> → XGBoost scoring · LLM recommendation · Vector Search + RAG<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl">⑦ Gold Layer</span> → decisions · risk profiles · pipeline health tables<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl-green">⑧ Model Serving Endpoint</span> → REST API · A/B traffic split · inference logging<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+      <span class="hl">⑨ Consumption</span> → Databricks SQL · Power BI · Chat Interface · REST API
+    </div>
+  </section>
+
+  <section>
+    <h2>How It Works — Step by Step</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Multi-Source Ingestion</div>
+          <div class="step-desc">5 source systems — Kafka (high-throughput streaming), ADLS Blob, REST APIs, Synapse JDBC, Azure Storage Queue. Each with dedicated ingestion pattern (Structured Streaming, Auto Loader, Python job, Synapse Connector, Azure Function trigger).</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Schema Registry + Data Contracts Gate</div>
+          <div class="step-desc">Confluent Schema Registry enforces Avro schema compatibility. YAML Data Contracts define owner, SLA, field-level expectations. Great Expectations validates at boundary — contract breach blocks data and triggers alert.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Bronze → Silver Medallion Processing</div>
+          <div class="step-desc">Bronze stores raw immutable data with CDF enabled. Silver parses, validates, deduplicates via MERGE, applies 2-hour watermarks, and enriches with LLM extraction (ai_extract) — invalid records routed to DLQ.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Feature Store — Training/Serving Parity</div>
+          <div class="step-desc">Databricks Feature Store computes and stores features (debt_ratio, tx_velocity_30d, country_risk). Same feature logic used in training and real-time serving — eliminates training-serving skew entirely.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">XGBoost + LLM + Vector Search</div>
+          <div class="step-desc">XGBoost computes risk score 0–100 with SHAP explanation per prediction. LLM (Llama 3.1 405B via ai_query) generates recommendation text. Vector Search retrieves relevant policy documents — injected as RAG context into LLM for grounded answers.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">Model Serving + Champion-Challenger</div>
+          <div class="step-desc">Databricks Model Serving Endpoint exposes scoring as REST API (&lt;200ms P99). Champion 90% / Challenger 10% traffic split. New model proven in shadow mode before full rollout. Every prediction logged for drift detection.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">7</div>
+        <div>
+          <div class="step-title">Gold Layer + Consumption</div>
+          <div class="step-desc">Gold tables store final decisions with risk score, LLM recommendation, SHAP reason. Consumed by Databricks SQL dashboards, Power BI (DirectQuery), conversational chat interface, and external REST API for CRM integration.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>MLOps Practices</h2>
+    <ul>
+      <li><strong>Experiment tracking:</strong> Every training run logged — params, metrics, SHAP plots, LLM prompt versions</li>
+      <li><strong>Model registry:</strong> Staging → Production promotion with evaluation gate (AUC must exceed champion)</li>
+      <li><strong>Champion-Challenger:</strong> 10% traffic to new model, 2-week comparison before full rollout</li>
+      <li><strong>Drift monitoring:</strong> Evidently weekly report — auto-retrain triggered if drift exceeds 10%</li>
+      <li><strong>Feature Store:</strong> Eliminates training-serving skew — same features at training and inference time</li>
+      <li><strong>SHAP explainability:</strong> Every decision auditable — feature contribution per prediction logged to MLflow</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Governance & Compliance</h2>
+    <ul>
+      <li><strong>Unity Catalog:</strong> Column masking on PII fields, row-level security per business unit</li>
+      <li><strong>GDPR compliance:</strong> Retention policies on all tables, right-to-erasure via VACUUM, PII tagged</li>
+      <li><strong>Data lineage:</strong> Automatic end-to-end lineage — source to Gold — auditable in Unity Catalog</li>
+      <li><strong>Data Contracts:</strong> Schema evolution controlled, breaking changes blocked at ingestion boundary</li>
+      <li><strong>Audit logs:</strong> system.access.audit captures every read/write — full compliance trail</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tech Stack</h2>
+    <div class="tech-tags">
+      <span class="tech-tag">Azure Databricks</span>
+      <span class="tech-tag">Apache Kafka</span>
+      <span class="tech-tag">Delta Lake</span>
+      <span class="tech-tag">Delta Live Tables</span>
+      <span class="tech-tag">Auto Loader</span>
+      <span class="tech-tag">Structured Streaming</span>
+      <span class="tech-tag">MLflow</span>
+      <span class="tech-tag">XGBoost</span>
+      <span class="tech-tag">SHAP</span>
+      <span class="tech-tag">Evidently</span>
+      <span class="tech-tag">Databricks Feature Store</span>
+      <span class="tech-tag">Model Serving Endpoints</span>
+      <span class="tech-tag">Llama 3.1 405B</span>
+      <span class="tech-tag">Vector Search</span>
+      <span class="tech-tag">RAG</span>
+      <span class="tech-tag">Unity Catalog</span>
+      <span class="tech-tag">Great Expectations</span>
+      <span class="tech-tag">Azure DevOps</span>
+      <span class="tech-tag">Databricks Asset Bundles</span>
+      <span class="tech-tag">Power BI</span>
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">PySpark</span>
+    </div>
+  </section>
+
+</div>
+
+<!-- COMMENTS -->
+<div style="max-width:860px; margin:0 auto; padding:0 24px 80px;">
+  <div style="border-top:1px solid #1e293b; padding-top:48px;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#38bdf8; margin-bottom:8px;">Discussion</div>
+    <div style="font-size:1.3rem; font-weight:700; color:#e2e8f0; margin-bottom:8px;">Comments</div>
+    <p style="font-size:14px; color:#94a3b8; margin-bottom:28px;">Questions, feedback, or thoughts on this architecture? Sign in with GitHub to join the discussion.</p>
+
+    <!-- SETUP: Go to https://giscus.app — enter repo "dataedge-learning/platform-portfolio",
+         enable Discussions on the repo, install Giscus app, then replace the data-repo-id
+         and data-category-id values below with the ones giscus.app generates for you. -->
+    <script src="https://giscus.app/client.js"
+      data-repo="dataedge-learning/platform-portfolio"
+      data-repo-id="REPLACE_WITH_REPO_ID"
+      data-category="General"
+      data-category-id="REPLACE_WITH_CATEGORY_ID"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark_dimmed"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</div>
+
+<footer>
+  © 2026 Shrikant Agrawal · <a href="index.html">Back to Portfolio</a>
+</footer>
+
+</body>
+</html>

@@ -3,245 +3,661 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shrikant Agrawal | DataOps • MLOps • GenAIOps</title>
-
-  <meta name="description" content="Shrikant Agrawal – DataOps, MLOps & GenAIOps engineer building production-grade data and AI platforms." />
-
-  <link rel="stylesheet" href="style.css" />
-
+  <title>Shrikant Agrawal | Lead Data Engineer · MLOps · GenAI</title>
+  <meta name="description" content="Lead Data Engineer with 14+ years building production data platforms, MLOps pipelines, and GenAI systems across regulated financial services in Europe, Asia-Pacific, and India." />
   <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:       #020617;
+      --surface:  #0f172a;
+      --border:   #1e293b;
+      --text:     #e2e8f0;
+      --muted:    #94a3b8;
+      --accent:   #38bdf8;
+      --green:    #34d399;
+      --purple:   #a78bfa;
+      --orange:   #fb923c;
+    }
+
     body {
-      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    a:hover {
-      text-decoration: underline;
+    /* ── NAV ── */
+    nav {
+      position: sticky; top:0; z-index:100;
+      background: rgba(2,6,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
     }
+    .nav-brand { font-weight:700; font-size:15px; color:var(--text); letter-spacing:0.3px; }
+    .nav-links { display:flex; gap:32px; font-size:13px; }
+    .nav-links a { color: var(--muted); font-weight:500; }
+    .nav-links a:hover { color: var(--text); text-decoration:none; }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    header {
+    /* ── HERO ── */
+    .hero {
+      max-width: 1000px; margin: 0 auto;
+      padding: 100px 24px 80px;
       text-align: center;
-      padding: 100px 20px 80px;
-      background: linear-gradient(180deg, #020617, #0f172a);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.3);
+      color: var(--accent);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 800;
+      line-height: 1.15; margin-bottom: 20px;
+      background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 640px; margin: 0 auto 36px;
+    }
+    .hero-cta { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap:8px;
+      padding: 10px 22px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent); color: #020617;
+    }
+    .btn-primary:hover { background: #7dd3fc; text-decoration:none; }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); text-decoration:none; }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 60px 0 0;
+    }
+    .stat {
+      flex: 1; min-width: 160px;
+      padding: 30px 20px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ── SECTIONS ── */
+    .section { max-width: 1000px; margin: 0 auto; padding: 80px 24px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 2rem; font-weight: 700;
+      color: var(--text); margin-bottom: 12px;
+    }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin-bottom: 48px; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ── EXPERTISE GRID ── */
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .exp-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .exp-icon { font-size: 28px; margin-bottom: 14px; }
+    .exp-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag {
+      font-size: 11px; padding: 3px 9px; border-radius: 4px;
+      background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2);
+      color: var(--accent);
+    }
+    .tag.green { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.2); color: var(--green); }
+    .tag.purple { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--purple); }
+    .tag.orange { background: rgba(251,146,60,0.08); border-color: rgba(251,146,60,0.2); color: var(--orange); }
+
+    /* ── CASE STUDIES ── */
+    .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .case-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .case-badge {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 4px; margin-bottom: 16px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .case-badge.blue { background: rgba(56,189,248,0.1); color: var(--accent); }
+    .case-badge.green { background: rgba(52,211,153,0.1); color: var(--green); }
+    .case-badge.purple { background: rgba(167,139,250,0.1); color: var(--purple); }
+    .case-title { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .case-desc { font-size: 13.5px; color: var(--muted); flex: 1; margin-bottom: 20px; }
+    .case-metrics { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .metric { text-align: center; }
+    .metric-val { font-size: 18px; font-weight: 800; color: var(--accent); }
+    .metric-val.green { color: var(--green); }
+    .metric-val.purple { color: var(--purple); }
+    .metric-label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+    .case-link {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 6px;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .job-card {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .job-card:last-child { border-bottom: none; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .job-title-text { font-size: 16px; font-weight: 700; color: var(--text); }
+    .job-dates { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .job-org { font-size: 13px; color: var(--accent); margin-bottom: 10px; }
+    .job-sector-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .sector-tag { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); color: #7dd3fc; letter-spacing: 0.3px; }
+    .job-bullets { padding-left: 18px; }
+    .job-bullets li { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.6; }
+    .job-bullets li strong { color: var(--text); }
+
+    /* ── TECH STACK ── */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .stack-group { }
+    .stack-group-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
+    .stack-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-tag {
+      font-size: 12px; padding: 4px 10px; border-radius: 5px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text);
     }
 
-    header h2 {
-      font-weight: 400;
-      color: #94a3b8;
-      margin-bottom: 25px;
+    /* ── CONTACT ── */
+    .contact-grid { display: flex; gap: 16px; flex-wrap: wrap; }
+    .contact-card {
+      flex: 1; min-width: 200px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 14px;
+      transition: border-color 0.2s;
     }
+    .contact-card:hover { border-color: var(--accent); text-decoration: none; }
+    .contact-icon { font-size: 22px; }
+    .contact-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .contact-value { font-size: 14px; font-weight: 600; color: var(--text); }
 
-    header p {
-      max-width: 720px;
-      margin: auto;
-      font-size: 1.1rem;
-      color: #cbd5f5;
-    }
-
-    .header-links {
-      margin-top: 30px;
-    }
-
-    .header-links a {
-      margin: 0 15px;
-      font-weight: 500;
-    }
-
-    section {
-      border-top: 1px solid #1e293b;
-    }
-
-    h3 {
-      font-size: 1.9rem;
-      margin-bottom: 20px;
-      color: #f8fafc;
-    }
-
-    p {
-      max-width: 850px;
-      color: #cbd5f5;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 10px;
-      padding: 25px;
-    }
-
-    .card h4 {
-      margin-bottom: 15px;
-      color: #38bdf8;
-    }
-
-    ul {
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .list-links li {
-      margin-bottom: 14px;
-    }
-
+    /* ── FOOTER ── */
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #020617;
-      color: #64748b;
-      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      text-align: center; padding: 30px 20px;
+      font-size: 13px; color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.2rem; }
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .stat { min-width: 120px; }
     }
   </style>
 </head>
-
 <body>
 
-<!-- ================= HERO ================= -->
-<header>
-  <h1>Shrikant Agrawal</h1>
-  <h2>DataOps • MLOps • GenAIOps Engineer</h2>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Shrikant Agrawal</div>
+  <div class="nav-links">
+    <a href="#expertise">Expertise</a>
+    <a href="#casestudies">Case Studies</a>
+    <a href="#experience">Experience</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-  <p>
-    I design and operate scalable data platforms, real-time streaming systems,
-    and production-grade machine learning pipelines with strong focus on reliability,
-    observability, and automation.
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Lead Data Engineer · DataOps · MLOps · GenAI</div>
+  <h1>Data Platforms.<br/>MLOps. GenAI.</h1>
+  <p class="hero-sub">
+    14+ years designing and operating large-scale data platforms, real-time streaming systems,
+    and production-grade ML + GenAI pipelines across Azure and AWS.
   </p>
-
-  <div class="header-links">
-    <a href="mailto:shrikantagrawal61@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/shrikant-agrawal/" target="_blank">LinkedIn</a>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#casestudies">View Case Studies</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/shrikant-agrawal/" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="mailto:shrikantagrawal61@gmail.com">Email Me</a>
   </div>
-</header>
+</div>
 
-<!-- ================= ABOUT ================= -->
-<section>
-  <div class="container">
-    <h3>About</h3>
-    <p>
-      I work across the full lifecycle of data and machine learning systems — from ingestion
-      and processing to model training, deployment, and monitoring. My work emphasizes
-      production-first design, fault tolerance, and long-term maintainability.
-    </p>
-    <p>
-      I regularly build and operate event-driven architectures, streaming inference systems,
-      and automated ML pipelines using modern DataOps, MLOps, and GenAIOps practices.
-    </p>
+<!-- VALUE PROPS -->
+<div style="max-width:1000px; margin:0 auto; padding:0 24px;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; padding:48px 0;">
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-size:24px; margin-top:2px;">🏗️</div>
+      <div>
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px;">Platform Architecture</div>
+        <div style="font-size:12px; color:var(--muted);">Design and build scalable Lakehouse platforms on Azure Databricks — from ingestion to AI-ready Gold layer.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-size:24px; margin-top:2px;">🤖</div>
+      <div>
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px;">ML & GenAI in Production</div>
+        <div style="font-size:12px; color:var(--muted);">Ship ML models and LLM pipelines that stay accurate — Feature Store, drift monitoring, champion-challenger rollout.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-size:24px; margin-top:2px;">🔐</div>
+      <div>
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px;">Governance & Compliance</div>
+        <div style="font-size:12px; color:var(--muted);">GDPR-ready pipelines with Data Contracts, Unity Catalog, PII masking, lineage, and audit trails built in from day one.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-size:24px; margin-top:2px;">🚀</div>
+      <div>
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px;">CI/CD & Platform Reliability</div>
+        <div style="font-size:12px; color:var(--muted);">Automated deployment with Databricks Asset Bundles, quality gates, multi-environment promotion — zero manual clicks in prod.</div>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- ================= EXPERTISE ================= -->
-<section>
-  <div class="container">
-    <h3>Core Expertise</h3>
-
-    <div class="grid">
-      <div class="card">
-        <h4>DataOps</h4>
-        <ul>
-          <li>Kafka, event streaming</li>
-          <li>Spark & distributed compute</li>
-          <li>Airflow orchestration</li>
-          <li>Data quality & lineage</li>
-        </ul>
+  <!-- CERTIFICATIONS -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap; padding-bottom:48px; justify-content:center;">
+    <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:10px 20px; display:flex; align-items:center; gap:10px;">
+      <span style="font-size:16px;">🏆</span>
+      <div>
+        <div style="font-size:11px; font-weight:700; color:var(--accent);">Databricks Certified</div>
+        <div style="font-size:10px; color:var(--muted);">Data Engineer Professional</div>
       </div>
-
-      <div class="card">
-        <h4>MLOps</h4>
-        <ul>
-          <li>Model training pipelines</li>
-          <li>MLflow & model registry</li>
-          <li>Model versioning & rollout</li>
-          <li>Batch & real-time inference</li>
-        </ul>
+    </div>
+    <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:10px 20px; display:flex; align-items:center; gap:10px;">
+      <span style="font-size:16px;">☁️</span>
+      <div>
+        <div style="font-size:11px; font-weight:700; color:var(--accent);">Microsoft Certified</div>
+        <div style="font-size:10px; color:var(--muted);">Azure Solutions Architect Expert</div>
       </div>
-
-      <div class="card">
-        <h4>GenAIOps</h4>
-        <ul>
-          <li>LLM orchestration</li>
-          <li>RAG pipelines</li>
-          <li>Inference monitoring</li>
-          <li>Prompt & model lifecycle</li>
-        </ul>
+    </div>
+    <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:10px 20px; display:flex; align-items:center; gap:10px;">
+      <span style="font-size:16px;">⚙️</span>
+      <div>
+        <div style="font-size:11px; font-weight:700; color:var(--accent);">Microsoft Certified</div>
+        <div style="font-size:10px; color:var(--muted);">Azure DevOps Engineer Expert</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ================= CASE STUDIES ================= -->
-<section>
-  <div class="container">
-    <h3>Case Studies</h3>
-    <ul class="list-links">
-      <li>
-        <a href="fraud-detection.html">
-          Real-Time Fraud Detection Platform (Kafka + Spark + MLflow)
-        </a>
-      </li>
-      <li><a href="#">End-to-End MLOps Pipeline with Airflow</a></li>
-      <li><a href="#">Streaming Inference Architecture (Low Latency)</a></li>
-      <li><a href="#">GenAI RAG System Design & Deployment</a></li>
-    </ul>
+<hr class="divider" />
+
+<!-- EXPERTISE -->
+<div class="section" id="expertise">
+  <div class="section-label">What I Do</div>
+  <div class="section-title">Core Expertise</div>
+  <p class="section-sub">End-to-end platform engineering — from raw ingestion to intelligent AI-powered decision systems.</p>
+
+  <div class="expertise-grid">
+
+    <div class="exp-card">
+      <div class="exp-icon">⚡</div>
+      <div class="exp-title">Data Engineering & Streaming</div>
+      <p style="font-size:13.5px; color:var(--muted);">Real-time event streaming, Medallion Architecture (Bronze/Silver/Gold), Delta Lake, Auto Loader, DLT pipelines at enterprise scale across regulated financial services environments.</p>
+      <div class="exp-tags">
+        <span class="tag">Apache Kafka</span>
+        <span class="tag">Apache Spark</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">Auto Loader</span>
+        <span class="tag">DLT</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🤖</div>
+      <div class="exp-title">MLOps & Model Lifecycle</div>
+      <p style="font-size:13.5px; color:var(--muted);">End-to-end model lifecycle — Feature Store, experiment tracking, model registry, champion-challenger deployment, drift monitoring, SHAP explainability.</p>
+      <div class="exp-tags">
+        <span class="tag green">MLflow</span>
+        <span class="tag green">Feature Store</span>
+        <span class="tag green">XGBoost</span>
+        <span class="tag green">SHAP</span>
+        <span class="tag green">Evidently</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🧠</div>
+      <div class="exp-title">GenAI & RAG Pipelines</div>
+      <p style="font-size:13.5px; color:var(--muted);">Production LLM pipelines, Retrieval-Augmented Generation (RAG), Vector Search, semantic search, conversational AI — grounded on enterprise data.</p>
+      <div class="exp-tags">
+        <span class="tag purple">RAG</span>
+        <span class="tag purple">Vector Search</span>
+        <span class="tag purple">LLM Integration</span>
+        <span class="tag purple">Llama 3.1</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🔐</div>
+      <div class="exp-title">Governance & Compliance</div>
+      <p style="font-size:13.5px; color:var(--muted);">Unity Catalog governance, Data Contracts framework, PII masking, row-level security, GDPR-compliant pipelines, full data lineage.</p>
+      <div class="exp-tags">
+        <span class="tag orange">Unity Catalog</span>
+        <span class="tag orange">Data Contracts</span>
+        <span class="tag orange">GDPR</span>
+        <span class="tag orange">Data Lineage</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🚀</div>
+      <div class="exp-title">CI/CD & Platform Engineering</div>
+      <p style="font-size:13.5px; color:var(--muted);">Azure DevOps pipelines, Databricks Asset Bundles, automated testing with Great Expectations, multi-environment promotion (Dev → Staging → Prod).</p>
+      <div class="exp-tags">
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">DAB</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Terraform</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">☁️</div>
+      <div class="exp-title">Cloud Platforms</div>
+      <p style="font-size:13.5px; color:var(--muted);">Deep Azure expertise (Databricks, ADLS, Event Grid, Key Vault, ADF) and AWS (EMR, S3, Glue). Cloud-native architecture for regulated enterprise environments.</p>
+      <div class="exp-tags">
+        <span class="tag">Microsoft Azure</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">ADLS Gen2</span>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
 
-<!-- ================= PROJECT CODE ================= -->
-<section>
-  <div class="container">
-    <h3>Project Code & Repositories</h3>
-    <ul class="list-links">
-      <li><a href="#">Kafka + Spark Streaming Examples</a></li>
-      <li><a href="#">MLOps Reference Architecture</a></li>
-      <li><a href="#">Airflow DAG Patterns</a></li>
-      <li><a href="#">Inference Service Templates</a></li>
-    </ul>
+<hr class="divider" />
+
+<!-- CASE STUDIES -->
+<div class="section" id="casestudies">
+  <div class="section-label">Real Work</div>
+  <div class="section-title">Case Studies</div>
+  <p class="section-sub">Production platforms built and operated at scale in regulated enterprise environments.</p>
+
+  <div class="case-grid">
+
+    <div class="case-card">
+      <span class="case-badge blue">MLOps · GenAI · Streaming</span>
+      <div class="case-title">AI-Powered Intelligent Decisioning Platform</div>
+      <p class="case-desc">
+        End-to-end platform transforming unstructured documents into structured risk profiles.
+        XGBoost risk scoring, LLM-based document extraction, RAG-powered conversational interface,
+        SHAP explainability for every decision — all tracked in MLflow.
+      </p>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">0.95+</div><div class="metric-label">ROC-AUC</div></div>
+        <div class="metric"><div class="metric-val green">&lt;200ms</div><div class="metric-label">Serving latency</div></div>
+        <div class="metric"><div class="metric-val purple">RAG</div><div class="metric-label">Grounded answers</div></div>
+      </div>
+      <a class="case-link" href="loan-decisioning-platform.html">Read case study →</a>
+    </div>
+
+    <div class="case-card">
+      <span class="case-badge green">Data Contracts · Governance</span>
+      <div class="case-title">Data Contract Validation Framework</div>
+      <p class="case-desc">
+        Designed and implemented a YAML-based Data Contract framework enforcing schema,
+        business rules, SLAs, and ownership pre-processing across diverse enterprise data sources —
+        fully integrated with Unity Catalog and Great Expectations.
+      </p>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val green">↓↓</div><div class="metric-label">Incidents reduced</div></div>
+        <div class="metric"><div class="metric-val">Multi</div><div class="metric-label">Sources governed</div></div>
+        <div class="metric"><div class="metric-val purple">GDPR</div><div class="metric-label">Compliant</div></div>
+      </div>
+      <a class="case-link" href="data-contracts-framework.html">Read case study →</a>
+    </div>
+
+    <div class="case-card">
+      <span class="case-badge purple">GenAI · Vector Search · RAG</span>
+      <div class="case-title">Enterprise Semantic Search & RAG System</div>
+      <p class="case-desc">
+        Built intelligent semantic search on a Databricks data platform using Vector Search
+        and RAG architecture — enabling business users to retrieve relevant enterprise data
+        through natural language queries with grounded, accurate answers.
+      </p>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">NL</div><div class="metric-label">Query interface</div></div>
+        <div class="metric"><div class="metric-val green">Zero</div><div class="metric-label">Hallucination risk</div></div>
+        <div class="metric"><div class="metric-val purple">Ent.</div><div class="metric-label">Scale deployed</div></div>
+      </div>
+      <a class="case-link" href="rag-semantic-search.html">Read case study →</a>
+    </div>
+
   </div>
-</section>
+</div>
 
-<!-- ================= COMMANDS & TIPS ================= -->
-<section>
-  <div class="container">
-    <h3>Commands, Tips & Engineering Notes</h3>
-    <ul class="list-links">
-      <li><a href="#">Kafka Debugging & Operations Commands</a></li>
-      <li><a href="#">Spark Streaming Performance Tuning</a></li>
-      <li><a href="#">Airflow Production Best Practices</a></li>
-      <li><a href="#">MLOps Failure Patterns & Fixes</a></li>
-    </ul>
+<hr class="divider" />
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Experience</div>
+  <p class="section-sub">14+ years delivering enterprise data platforms across regulated financial services, banking, and capital markets — across Europe, Asia-Pacific, and India.</p>
+
+  <div class="exp-list">
+
+    <div class="job-card">
+      <div class="job-header">
+        <div class="job-title-text">Lead Data Engineer</div>
+        <div class="job-dates">Nov 2021 – Mar 2026</div>
+      </div>
+      <div class="job-org">Enterprise Data & AI Platform · Regulated Financial Services · Netherlands</div>
+      <div class="job-sector-tags">
+        <span class="sector-tag">Azure Databricks</span>
+        <span class="sector-tag">MLOps</span>
+        <span class="sector-tag">GenAI</span>
+        <span class="sector-tag">GDPR</span>
+        <span class="sector-tag">Unity Catalog</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Owned end-to-end Azure Databricks platform — large-scale production pipelines across multiple data domains, high-volume ingestion from diverse source systems, serving multiple downstream consumers.</li>
+        <li>Delivered <strong>AI-powered intelligent decisioning platform</strong> — LLM document extraction, XGBoost risk scoring, RAG conversational interface, SHAP explainability.</li>
+        <li>Built <strong>semantic search capability</strong> using Generative AI and RAG architecture — enabling natural language queries on enterprise data.</li>
+        <li>Designed <strong>Data Contract validation framework</strong> — significantly reducing production incidents across high-volume transactional workflows.</li>
+        <li>Implemented <strong>Databricks Feature Store</strong>, Model Serving Endpoints with champion-challenger traffic splitting, and centralised MLflow model registry.</li>
+        <li>Engineered <strong>GDPR-compliant pipelines</strong> on Unity Catalog — PII masking, row-level security, data lineage, and retention policies across the full platform.</li>
+        <li>Delivered <strong>CI/CD pipelines</strong> in Azure DevOps using Databricks Asset Bundles — automated testing and multi-environment promotion.</li>
+      </ul>
+    </div>
+
+    <div class="job-card">
+      <div class="job-header">
+        <div class="job-title-text">DataOps Engineer</div>
+        <div class="job-dates">Nov 2018 – Oct 2021</div>
+      </div>
+      <div class="job-org">Cloud Data Engineering · Banking & Capital Markets · Malaysia</div>
+      <div class="job-sector-tags">
+        <span class="sector-tag">AWS</span>
+        <span class="sector-tag">PySpark</span>
+        <span class="sector-tag">Cloud Migration</span>
+        <span class="sector-tag">ETL Optimisation</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Designed cloud-native data pipelines on AWS supporting large-scale ingestion from diverse transactional and third-party source systems.</li>
+        <li>Engineered and optimised high-volume PySpark ETL pipelines — delivering measurable improvements in throughput and processing latency.</li>
+        <li>Led cloud migration programme modernising legacy on-premises data systems onto AWS — reducing infrastructure costs and operational complexity.</li>
+      </ul>
+    </div>
+
+    <div class="job-card">
+      <div class="job-header">
+        <div class="job-title-text">Senior ETL Engineer</div>
+        <div class="job-dates">Jun 2012 – Sep 2018</div>
+      </div>
+      <div class="job-org">Enterprise ETL & DataOps · Investment Banking · India</div>
+      <div class="job-sector-tags">
+        <span class="sector-tag">ETL</span>
+        <span class="sector-tag">Data Warehousing</span>
+        <span class="sector-tag">Batch Automation</span>
+        <span class="sector-tag">Performance Tuning</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Developed and maintained enterprise ETL systems supporting critical financial data workloads across trading, risk, and reporting domains.</li>
+        <li>Led ETL performance optimisation initiatives — improving query execution times and pipeline throughput for high-volume batch processes.</li>
+        <li>Automated batch workflows and operational monitoring, establishing DataOps-style engineering practices across the delivery team.</li>
+      </ul>
+    </div>
+
   </div>
-</section>
+</div>
 
-<!-- ================= FOOTER ================= -->
+<hr class="divider" />
+
+<!-- TECH STACK -->
+<div class="section" id="stack">
+  <div class="section-label">Technologies</div>
+  <div class="section-title">Tech Stack</div>
+  <p class="section-sub">Tools and platforms used in production across 13+ years.</p>
+
+  <div class="stack-grid">
+    <div class="stack-group">
+      <div class="stack-group-title">Data Engineering</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Azure Databricks</span>
+        <span class="stack-tag">Apache Spark</span>
+        <span class="stack-tag">PySpark</span>
+        <span class="stack-tag">Delta Lake</span>
+        <span class="stack-tag">Delta Live Tables</span>
+        <span class="stack-tag">Auto Loader</span>
+        <span class="stack-tag">Apache Kafka</span>
+        <span class="stack-tag">Azure Data Factory</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="stack-group-title">MLOps & AI</div>
+      <div class="stack-tags">
+        <span class="stack-tag">MLflow</span>
+        <span class="stack-tag">Feature Store</span>
+        <span class="stack-tag">XGBoost</span>
+        <span class="stack-tag">SHAP</span>
+        <span class="stack-tag">Evidently</span>
+        <span class="stack-tag">Vector Search</span>
+        <span class="stack-tag">RAG</span>
+        <span class="stack-tag">Llama 3.1</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="stack-group-title">Cloud & DevOps</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Microsoft Azure</span>
+        <span class="stack-tag">AWS</span>
+        <span class="stack-tag">Azure DevOps</span>
+        <span class="stack-tag">GitHub Actions</span>
+        <span class="stack-tag">Databricks Asset Bundles</span>
+        <span class="stack-tag">Terraform</span>
+        <span class="stack-tag">Docker</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="stack-group-title">Governance & Quality</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Unity Catalog</span>
+        <span class="stack-tag">Data Contracts</span>
+        <span class="stack-tag">Great Expectations</span>
+        <span class="stack-tag">GDPR Compliance</span>
+        <span class="stack-tag">Data Lineage</span>
+        <span class="stack-tag">PII Masking</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="stack-group-title">Analytics</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Databricks SQL</span>
+        <span class="stack-tag">Power BI</span>
+        <span class="stack-tag">Databricks Dashboards</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="stack-group-title">Programming</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">SQL</span>
+        <span class="stack-tag">PySpark</span>
+        <span class="stack-tag">YAML</span>
+        <span class="stack-tag">Shell</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title">Contact</div>
+  <p class="section-sub">Interested in collaborating on data platform challenges, architecture discussions, or knowledge sharing.</p>
+
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:shrikantagrawal61@gmail.com">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">shrikantagrawal61@gmail.com</div>
+      </div>
+    </a>
+    <a class="contact-card" href="https://www.linkedin.com/in/shrikant-agrawal/" target="_blank">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/shrikant-agrawal</div>
+      </div>
+    </a>
+    <a class="contact-card" href="https://www.dataxflows.com" target="_blank">
+      <div class="contact-icon">🌐</div>
+      <div>
+        <div class="contact-label">Website</div>
+        <div class="contact-value">www.dataxflows.com</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  © 2026 Shrikant Agrawal · Built around real-world data & ML systems
+  © 2026 Shrikant Agrawal · Lead Data Engineer · Almere, Netherlands
 </footer>
 
 </body>
