@@ -110,7 +110,7 @@
   <div class="metrics-row">
     <div class="metric"><div class="metric-val">0.95+</div><div class="metric-label">Model ROC-AUC</div></div>
     <div class="metric"><div class="metric-val green">&lt;200ms</div><div class="metric-label">Serving latency</div></div>
-    <div class="metric"><div class="metric-val">10M+</div><div class="metric-label">Records/day</div></div>
+    <div class="metric"><div class="metric-val">High</div><div class="metric-label">Throughput volume</div></div>
     <div class="metric"><div class="metric-val purple">RAG</div><div class="metric-label">Grounded answers</div></div>
     <div class="metric"><div class="metric-val green">SHAP</div><div class="metric-label">Every decision explained</div></div>
   </div>
@@ -137,7 +137,7 @@
         <div style="background:rgba(56,189,248,0.08); border:1.5px solid rgba(56,189,248,0.35); border-radius:10px; padding:12px 14px; min-width:130px; text-align:center;">
           <div style="font-size:18px; margin-bottom:4px;">📡</div>
           <div style="font-size:10px; font-weight:800; color:#38bdf8;">Kafka</div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.4); margin-top:3px;">10K events/sec<br/>Confluent · SASL_SSL</div>
+          <div style="font-size:9px; color:rgba(255,255,255,0.4); margin-top:3px;">High-throughput events<br/>Confluent · SASL_SSL</div>
         </div>
         <div style="background:rgba(251,211,141,0.08); border:1.5px solid rgba(251,211,141,0.35); border-radius:10px; padding:12px 14px; min-width:130px; text-align:center;">
           <div style="font-size:18px; margin-bottom:4px;">📁</div>
@@ -431,7 +431,7 @@
         <div class="step-num">1</div>
         <div>
           <div class="step-title">Multi-Source Ingestion</div>
-          <div class="step-desc">5 source systems — Kafka (10,000 events/sec), ADLS Blob, REST APIs, Synapse JDBC, Azure Storage Queue. Each with dedicated ingestion pattern (Structured Streaming, Auto Loader, Python job, Synapse Connector, Azure Function trigger).</div>
+          <div class="step-desc">5 source systems — Kafka (high-throughput streaming), ADLS Blob, REST APIs, Synapse JDBC, Azure Storage Queue. Each with dedicated ingestion pattern (Structured Streaming, Auto Loader, Python job, Synapse Connector, Azure Function trigger).</div>
         </div>
       </div>
       <div class="flow-step">
@@ -530,6 +530,34 @@
     </div>
   </section>
 
+</div>
+
+<!-- COMMENTS -->
+<div style="max-width:860px; margin:0 auto; padding:0 24px 80px;">
+  <div style="border-top:1px solid #1e293b; padding-top:48px;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#38bdf8; margin-bottom:8px;">Discussion</div>
+    <div style="font-size:1.3rem; font-weight:700; color:#e2e8f0; margin-bottom:8px;">Comments</div>
+    <p style="font-size:14px; color:#94a3b8; margin-bottom:28px;">Questions, feedback, or thoughts on this architecture? Sign in with GitHub to join the discussion.</p>
+
+    <!-- SETUP: Go to https://giscus.app — enter repo "dataedge-learning/platform-portfolio",
+         enable Discussions on the repo, install Giscus app, then replace the data-repo-id
+         and data-category-id values below with the ones giscus.app generates for you. -->
+    <script src="https://giscus.app/client.js"
+      data-repo="dataedge-learning/platform-portfolio"
+      data-repo-id="REPLACE_WITH_REPO_ID"
+      data-category="General"
+      data-category-id="REPLACE_WITH_CATEGORY_ID"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark_dimmed"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
 </div>
 
 <footer>
